@@ -37,7 +37,7 @@ function calcularPrecio(){
 
 let opcion;
 while (true) {
-    opcion = prompt('¿Quieres editar o calcular? \nPrecio gramo = 15 \nkwh = 153 \nPrecios actualizados al 28/6/24').toLowerCase();
+    opcion = prompt('Calcula el precio de tu impresion 3D \n¿Quieres editar o calcular? \nPrecio gramo = 15 \nkwh = 153 \nPrecios actualizados al 28/6/24').toLowerCase();
     if (opcion === 'calcular' || opcion === 'editar') {
         break;
     } else {
