@@ -1,8 +1,4 @@
-//*  una calculadora que me calcule costos de piezas de impresion 3d
 
-// Precio kwh 1.52
-// filamento por gramo 15mil el kg
-// 
 function gramoxpesogramo (gramos,pesogramo) {
     return gramos*pesogramo;
 }
@@ -13,15 +9,26 @@ function tiempoxkwh (horas, kwh){
 
 function solicitarNumero(mensaje) {
     let numero = prompt(mensaje);
-    if (isNaN(numero) || numero.trim() === '') {
+    if (isNaN(numero) || numero.trim() === ''|| parseFloat(numero) <= 0) {
         alert('Por favor, ingrese un número válido.');
-        return solicitarNumero(mensaje); // Llamada recursiva
+        return solicitarNumero(mensaje); 
     }
     return parseFloat(numero);
 }
 
 let pesogramo = 15
 let kwh = 153
+
+function repetirCalculo() {
+    let continuar = 'si';
+    while (continuar === 'si') {
+        let preciofinal = calcularPrecio();
+        alert('El precio de su pieza es de ' + preciofinal);
+        continuar = prompt('¿Quieres hacer otra cuenta? (si/no)').toLowerCase();
+    }
+    alert('Gracias por usar la calculadora. ¡Hasta luego!');
+}
+
 
 function calcularPrecio(){
     let gramos = solicitarNumero('Ingrese el peso de su pieza en Gramos')
@@ -31,8 +38,6 @@ function calcularPrecio(){
     let preciofinal = preciogramo + preciotiempo
     return preciofinal
 }
-
-
 
 
 let opcion;
@@ -61,5 +66,9 @@ kwh = kw*1.7
 
 alert('Su precio kwh es de ' + kwh + ' y su precio por Gramo es de ' + pesogramo)
 let preciofinal = calcularPrecio();
-alert('el precio de su pieza es de ' + preciofinal)
+alert('el precio de su pieza es de ' + preciofinal);
 }
+
+repetirCalculo();
+
+
