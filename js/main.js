@@ -20,13 +20,19 @@ let pesogramo = 15
 let kwh = 153
 
 function repetirCalculo() {
-    let continuar = 'si';
-    while (continuar === 'si') {
-        let preciofinal = calcularPrecio();
-        alert('El precio de su pieza es de ' + preciofinal);
-        continuar = prompt('¿Quieres hacer otra cuenta? (si/no)').toLowerCase();
+    while (true) {
+        let continuar = prompt('¿Quieres hacer otra cuenta? (si/no)').toLowerCase();
+
+        if (continuar === 'si') {
+            let preciofinal = calcularPrecio();
+            alert('El precio de su pieza es de ' + preciofinal);
+        } else if (continuar === 'no') {
+            alert('Gracias por usar la calculadora. ¡Hasta luego!');
+            break;
+        } else {
+            alert('Por favor, contesta con "si" o "no".');
+        }
     }
-    alert('Gracias por usar la calculadora. ¡Hasta luego!');
 }
 
 
